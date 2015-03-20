@@ -36,31 +36,24 @@ ul {
 .header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   min-height: 56px;
-  height: 12%;
+  height: 10%;
   transition: min-height 0.3s;
 }
 
 .header__inner {
   width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .header__logo {
-  height: 72px;
-  margin-right: 1em;
-  vertical-align: top;
-  margin-top: 12px;
+  height: 60px;
+  width: 220px;
+  margin-bottom: 0.5%;
+  margin-top: 0.5%;
+  margin-left: 40%;
 }
-
-.header__title {
-  font-weight: 300;
-  font-size: 4em;
-  margin: 0.5em 0.25em;
-  display: inline-block;
-  color: #212121;
-}
-
 
 /*
  *
@@ -73,6 +66,8 @@ ul {
   height: 8%;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  min-height: 65px;
 }
 
 .nav__list {
@@ -104,6 +99,17 @@ ul {
   color: #212121;
 }
 
+.typeahead.dropdown-menu
+{
+  max-width: 170px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.4);
+}
+.typeahead.dropdown-menu li
+{
+  font-size: 8pt;
+}
+
 /* nav left */
 
 .nav_left {
@@ -111,7 +117,7 @@ ul {
   height: 81%;
   position: absolute;
   display: block;
-  margin-left: auto;
+  overflow: scroll;
   z-index: 1;
 }
 
@@ -146,91 +152,13 @@ ul {
 
 /*
  *
- * Main
- *
- */
-
-main {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 100%;
-  height: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/*
- *
- * Content
- *
- */
-
-
-/*
- *
- * Hero
- *
- */
-
-.hero {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-image: url("./images/dog.jpg");
-  background-size: cover;
-  left: 15%;
-}
-
-.hero article {
-  box-sizing: border-box;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  bottom: 0;
-  height: 30%;
-  width: 100%;
-  color: #fff;
-  padding: 1em;
-}
-
-.map{
-  width: 100%;
-  height: 100%;
-  position: relative;
-  left: 17%;
-}
-
-
-/*
- *
  * collapsible list 
  *
  */
-/*
-.nav_left__list
-{
-  z-index: 3;
-  right: 0;
-  top: 0;
-  height: 100%;
-  border-left: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  overflow-y: scroll;
-  background-color: #333;
-}*/
-.typeahead.dropdown-menu
-{
-  max-width: 170px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,.4);
-}
-.typeahead.dropdown-menu li
-{
-  font-size: 8pt;
-}
 .nav_left__list .category
 {
   font-size: 11pt;
-  color: #eee;
+  color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -255,7 +183,8 @@ main {
   display: block;
   overflow: hidden;
   padding: 3px 6px;
-  color: #eee;
+  color: #000;
+  text-decoration: none;
 }
 .nav_left__list .category .category_info:hover 
 {
@@ -305,7 +234,7 @@ main {
   font-size: 8pt;
   padding: 5px 10px;
   outline: none;
-  color: #ccc;
+  color: #000;
   font-weight: normal;
   line-height: 1.4em; 
 }
@@ -314,7 +243,7 @@ main {
   background-color: rgba(255,255,255,.03);
   text-decoration: none;
   outline: none;
-  color: #fff;
+  color: #001F6F;
 }
 .nav_left__list .nav_left__list-items li a:active
 {
@@ -322,10 +251,90 @@ main {
   background-color: #444;
 }
 
+.blurb{
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 3px;
+  margin-bottom:3px;
+}
+
+/*
+ *
+ * Main
+ *
+ */
+
+main {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  width: 100%;
+  height: 82%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+ *
+ * Content
+ *
+ */
+
+.map{
+  width: 80%;
+  height: 90%;
+  position: relative;
+}
 
 
 
 
+/*
+ *
+ * markers
+ *
+ */
+.marker_label
+{
+  display: none;
+  position: relative; 
+  left: -50%; 
+  top: -8px;
+  white-space: nowrap; 
+  padding: 2px 4px; 
+  font-size: 8pt; 
+  background-color: rgba(0,0,0,.7); 
+  color: #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.marker_title
+{
+  font-weight: bold;
+  max-width: 350px;
+}
+.marker_uri
+{
+  font-size: 9pt;
+  color: #999;
+}
+.marker_desc
+{
+  max-width: 300px;
+  color: #555;
+  font-size: 9pt;
+  margin-top: 10px;
+}
+.marker_address
+{
+  font-size: 8pt;
+  margin-top: 10px;
+  color: #999;
+}
+.marker_fecini
+{
+  font-size: 8pt;
+  margin-top: 10px;
+  color: #999;
+}
 
 /*
  *
