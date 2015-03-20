@@ -1,0 +1,189 @@
+
+.header__menu {
+  display: none;
+}
+
+.filter__menu {
+    display: none;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 90%;
+}
+
+@media screen and (max-width: 550px){
+  main{
+    height: 90%;
+  }
+  .nav{
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
+    height: 8%;
+    -webkit-transform: translate(0,-300px);
+    transform: translate (0,-300px);
+    transition: transform 0.3s ease;
+  }
+
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .nav__item {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 24.3%;
+  height: 100%;
+  text-transform: uppercase;
+  padding: 25px 0px;
+  margin: 0px 0px;
+  border-left: 1px solid #E0E0E0;
+  }
+
+  .nav a {
+  text-decoration: none;
+  color: #616161;
+  padding: 0;
+}
+
+  .header{
+    height: 10%;
+  }
+
+  .header__inner{
+    height: 100%;
+  }
+
+  .header__logo{
+    margin-bottom: 12px;
+  }
+
+  .header__title{
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  .header__logo{
+    height: 48px;
+  }
+
+  .header__menu{
+    display: inline-block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0px;
+    padding: 1em;
+    margin-top: 1em;
+  }
+
+  .nav_left{
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    width: 100px;
+    left: 0px;
+    -webkit-transform: translate(-300px,0);
+    transform: translate (-300px,0);
+    transition: transform 0.3s ease;
+  }
+
+  .nav_left.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .nav_left__list{
+    width: 100%;
+  }
+  .nav_left__item {
+  box-sizing: border-box;
+  display: list-item;
+  border-bottom: 1px solid #E0E0E0;
+  width: 100%;
+  height: 81%;
+  text-align: left;
+  line-height: 24px;
+  padding: 24px 6px;
+  text-transform: uppercase;
+  }
+
+  .filter__menu{
+    display: inline-block;
+    position: absolute;
+    width: 5px;
+    height: 25px;
+    left: 0px;
+    top: 15%;
+    padding: 1em;
+    margin-top: 1em;
+    z-index: 1;
+  }
+  .hero{
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    order: -4;
+  }
+  .map{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    order: 2;
+  }
+/*
+ *
+ * collapsible list 
+ *
+ */
+
+  .nav_left__list .category
+  {
+    font-size: 8pt;
+    color: #eee;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+}
+
+@media screen and (min-width: 551px){
+  .map{
+    width: 85%;
+    height: 100%;
+    left: 20%;
+    order: 2;
+  }
+
+  .nav a {
+    padding: 0em;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .map{
+    width: 85%;
+    height: 100%; 
+    left: 15%;    
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .map{
+    width: 90%;
+    height: 100%; 
+    left: 10%;    
+    order: 2;
+  }
+  .nav_left{
+    margin: auto;
+  }
+}
+
+
