@@ -149,6 +149,11 @@
     margin-bottom:3px;
   }
 
+  .modalDialog > div {
+  width: 90%;
+  height: 90%;
+}
+
   footer {
     order: 3;
     height: 10%;

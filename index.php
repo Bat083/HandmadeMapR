@@ -31,10 +31,13 @@ include_once "header.php";
 
     <nav id="drawer" class="nav">
       <ul class="nav__list">
-        <li class="nav__item"><a href="#">Inscribete</a></li>
-        <li class="nav__item"><a href="#">Eventos</a></li>
-        <li class="nav__item"><a href="#">Info</a></li>
-        <li class="nav__item"><a href="#">Blog</a></li>
+        <li class="nav__item"><a href="#modal_add">Inscribete</a>
+        </li>
+        <li class="nav__item"><a href="#modal_add_ev">Eventos</a>
+        </li>
+        <li class="nav__item"><a href="#openModal_info">Info</a>
+        </li> 
+        <li class="nav__item"><a href="http://www.handmademap.com/blog" target="_blank">Blog</a></li>
       </ul>
     </nav>
 
@@ -161,6 +164,157 @@ include_once "header.php";
         </footer>
       </section>
     </main>
+
+    <!-- INFO -->
+    <div id="openModal_info" class="modalDialog">
+      <div>
+        <div class="modal-header">
+            <h2>F.A.Q.</h2>
+            <a href="#close" title="Close" class="close btn">X</a>
+        </div>
+        <div class="modal-body">
+                  <p> 
+                      <b>
+                      1. ¿Qué es HandMade Map? 
+                      </b>
+                  </p>
+                  <p>
+                      HandMade Map es un mapa en donde queremos geoposicionar a todas las personas relacionadas con el mundo de los objetos hechos a mano.
+                  </p>
+                  <p> 
+                      <b>
+                      2. ¿Por qué lo hemos creado?  
+                      </b>
+                  </p>
+                  <p>
+                      Como usuarios/compradores de objetos hechos a mano es muy difícil encontrar estos espacios o hacedores por búsquedas de proximidad. Con este mapa queremos visualizar donde están estas personas, ya que por cercanía es mas fácil contactar con ellos.
+                  </p>
+                  <p> 
+                      <b>
+                      3. ¿En qué me beneficia como maker o hacedor estar en el mapa?
+                      </b>
+                  </p>
+                  <p>
+                      Visibilidad.<br/>
+                      Queremos deis a conocer vuestros talleres, en donde la geolocalización es muy importante, y en el caso de que la proximidad sea un problema pueda acudir a vuestra web o fan page para adquirir vuestras obras.
+                  </p>
+                  <p> 
+                      <b>
+                      4. ¿Es gratis geoposicinarse en este mapa? 
+                      </b>
+                  </p>
+                  <p>
+                      Totalmente gratis, no posee coste ninguno.<br/> 
+                      El único fin  de esta herramienta es  aglutinar todo el movimiento handcraft para geoposicionarlo en un mapa para que las personas puedan identificar fácilmente los espacios, makers y puedan adquirir información de los servicios/poductos de las personas/espacios registrados en la web.
+                  </p>
+                  <p> 
+                      <b>
+                      5. ¿Qué diferencia hay entre Makers, Espacios, Markets y Talleres? 
+                      </b>
+                  </p>
+                  <p>
+                      Maker es lo que conocemos como el hacedor, aquella persona que haga productos hechos a manos.<br/>
+                      Espacio es el lugar en donde se produce la venta de productos, a modo tienda o que ofrezca servicios como talleres.<br/>
+                      Taller es un evento que puede organizar un determinado espacio para enseñar y mostrar una determinada habilidad.<br/>
+                      Market hace referencia a los eventos itinerantes que aglutinan handmakers de todas partes. 
+                  </p>
+                  <p> 
+                      <b>
+                      6. Soy un maker ¿pero no quiero ubicar donde estoy exactamente ?
+                      </b>
+                  </p>
+                  <p>
+                      No hace falta que pongas tu lugar exacto donde te ubicas, solamente colocando la calle y la ciudad podemos incluirte en el mapa.
+                  </p>
+                  <p> 
+                      <b>
+                      7. ¿Como espacio o maker, qué tipologia de etiquetas hay para clasificarme?
+                      </b>
+                  </p>
+                  <p>
+                      <ul> 
+                          <li>Amigurimi </li>                
+                          <li>Bebé: Ropa y complementos </li>                    
+                          <li>Bolsos y mochilas </li>
+                          <li>Caligrafía </li>
+                          <li>Carvado de sellos </li>
+                          <li>Cerámica </li>
+                          <li>Chapas, imanes y merchandising </li>                    
+                          <li>Chuches/candy </li>                   
+                          <li>Costura y Patchwork </li>                    
+                          <li>Cuadros </li>                    
+                          <li>Cupcakes, galletas y tartas </li>                    
+                          <li>Decoración </li>                   
+                          <li>Encuadernación </li>      
+                          <li>Escultura </li> 
+                          <li>Esparto </li>                    
+                          <li>Fieltro </li>                    
+                          <li>Fimo </li>                    
+                          <li>Fofuchas </li>                    
+                          <li>Ganchillo </li>
+                          <li>Ilustración </li>
+                          <li>Joyas y bisutería </li>             
+                          <li>Mercería creativa </li>
+                          <li>Muñecos, peluches y muñecas </li>
+                          <li>Organización de eventos </li>                    
+                          <li>Piel y cuero </li>                
+                          <li>Pintura mural y Graffitis </li>
+                          <li>Reciclaje de materiales </li>
+                          <li>Ropa </li>                    
+                          <li>Scrapbook </li>
+                          <li>Tocados </li>
+                          <li>Trapillo </li>                    
+                          <li>Vidrio </li>                                                                                              
+                          <li>Zapatos </li>   
+                      </ul>  
+                  </p>
+                  <p> 
+                      <b>
+                      8. ¿Cuántos tipos de etiquetas puedo ponermer?
+                      </b>
+                  </p>
+                  <p>
+                      Puedes ponerte hasta 10 etiquets de una sola vez como máximo.
+                  </p>
+                  <p> 
+                      <b>
+                      9. ¿Y si cuando me registré me faltó una etiqueta por poner?
+                      </b>
+                  </p>
+                  <p>
+                      Puedes volver a registrarte pero OJO, registrate esta vez con la etiqueta que te falta, no vuelva a activar las que activaste anteriormente.
+                  </p>
+                  <p> 
+                      <b>
+                      10. Me he añadido en el mapa, pero no aparezco…
+                      </b>
+                  </p>
+                  <p>
+                      Danos 1-2 dias para procesar la información.
+                  </p>
+                  <p> 
+                      <b>
+                      11. ¿Y si me he equivocado con los datos que subí?
+                      </b>
+                  </p>
+                  <p>
+                      No pasa nada, puedes escribirnos a <a href="mailto:hello@handmademap.com">hello@handmademap.com</a> y nosotros haremos el cambio.
+                  </p>
+                  <p> 
+                      <b>
+                      12. Tengo otra pregunta que no aparece en el listado
+                      </b>
+                  </p>
+                  <p>
+                      Escríbenos a <a href="mailto:hello@handmademap.com">hello@handmademap.com</a> y te contestaremos con mucho gusto.
+                  </p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn">Close</a>
+          </div>     
+        </div>
+      </div>
+
     <script>
       //DEFINICION DE VARIABLES
       var gmarkers = [];       
@@ -514,7 +668,89 @@ include_once "header.php";
           $(".nav_left__list .list-"+subtype).toggles();
         }        
       google.maps.event.addDomListener(window, 'load', initialize);
+/*
+      // AÑADIR HANDMAKER O ESPACIO
+      $("#modal_addform").submit(function(event) {
+        event.preventDefault();
+        // get values
+        var allVals=[];
+        $('input[type="checkbox"]:checked').each(function () {
+         allVals.push($(this).val());
+        });
+        var $form = $( this ),
+            owner_name = $form.find( '#add_owner_name' ).val(),
+            owner_email = $form.find( '#add_owner_email' ).val(),
+            type = $form.find( '#add_type' ).val(),
+            address = $form.find( '#add_address' ).val(),
+            uri = $form.find( '#add_uri' ).val(),
+            description = $form.find( '#add_description' ).val(),     
+            sub_type = allVals, 
+            url = $form.attr( 'action' );
 
+        // send data and get results
+        $.post( url, { owner_name: owner_name, owner_email: owner_email, type: type, address: address, uri: uri, description: description, sub_type: sub_type},        
+          function( data ) {
+            var content = $( data ).find( '#content' );
+
+            // if submission was successful, show info alert
+            if(data == "success") {
+              $("#modal_addform #result").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
+              $("#modal_addform #result").addClass("alert alert-info");
+              $("#modal_addform p").css("display", "none");
+              $("#modal_addform fieldset").css("display", "none");
+              $("#modal_addform .btn-primary").css("display", "none");
+
+            // if submission failed, show error
+            } else {
+              $("#modal_addform #result").html(data);
+              $("#modal_addform #result").addClass("alert alert-danger");
+            }
+          }
+        );
+      });
+
+      // AÑADIR MARKET O EVENTO
+      $("#modal_addform_ev").submit(function(event) {
+        event.preventDefault();
+        // get values
+        var allVals=[];
+        $('input[type="checkbox"]:checked').each(function () {
+         allVals.push($(this).val());
+        });
+        var $form = $( this ),
+            ev_owner_name = $form.find( '#add_owner_name_ev' ).val(),
+            ev_owner_email = $form.find( '#add_owner_email_ev' ).val(),
+            ev_title = $form.find( '#add_title_ev' ).val(),
+            ev_type = $form.find( '#add_type_ev' ).val(),            
+            ev_fecini = $form.find( '#add_fecini_ev' ).val(),
+            ev_fecfin = $form.find( '#add_fecfin_ev' ).val(),
+            ev_address = $form.find( '#add_address_ev' ).val(),
+            ev_uri = $form.find( '#add_uri_ev' ).val(),
+            ev_description = $form.find( '#add_description_ev' ).val(),
+            ev_sub_type = allVals, 
+            ev_url = $form.attr( 'action' );
+
+        // send data and get results
+        $.post( ev_url, { ev_owner_name: ev_owner_name, ev_owner_email: ev_owner_email, ev_title: ev_title, ev_type: ev_type, ev_fecini: ev_fecini, ev_fecfin: ev_fecfin, ev_address: ev_address, ev_uri: ev_uri, ev_description: ev_description, ev_sub_type: ev_sub_type},        
+          function( data ) {
+            var content = $( data ).find( '#content' );
+
+            // if submission was successful, show info alert
+            if(data == "success") {
+              $("#modal_addform_ev #result_ev").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
+              $("#modal_addform_ev #result_ev").addClass("alert alert-info");
+              $("#modal_addform_ev p").css("display", "none");
+              $("#modal_addform_ev fieldset").css("display", "none");
+              $("#modal_addform_ev .btn-primary").css("display", "none");
+
+            // if submission failed, show error
+            } else {
+              $("#modal_addform_ev #result_ev").html(data);
+              $("#modal_addform_ev #result_ev").addClass("alert alert-danger");
+            }
+          }
+        );
+      });  */    
     </script>
   </body>
 </html>
