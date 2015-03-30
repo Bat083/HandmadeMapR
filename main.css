@@ -342,99 +342,8 @@ main {
  * Modals
  *
  *
+ */
 
-
-.modal
-{
-  background-color: transparent;
-}*/
-
-/*
-.modal-body
-{
-  background-color: #fff;
-}
-.modal .close
-{
-  color: #fff;
-  opacity: .7;
-  text-shadow: 0px 1px 0px #000;
-}
-.modal .close:hover
-{
-  color: #fff;
-  opacity: 1;
-}
-
-
-/* add marker modal 
-#modal_add
-{
-  margin-top: -350px;
-}
-#modal_add .modal-body
-{
-//  max-height: none;
-  max-height: 350px;
-}
-#modal_add fieldset
-{
-  padding-top: 15px;
-}
-#modal_add .control-label
-{
-  font-weight: bold;
-}
-#modal_add .help-block
-{
-  font-size: 8pt;
-  color: #777;
-  max-width: 275px;
-}
-#modal_add .modal-footer
-{
-  text-align: left;
-}
-//HandmadeMap 2.0
-#modal_add .modal-checkbox
-{
-  text-align: left;
-}
-
-
-/* add marker of event modal 
-#modal_add_ev
-{
-  margin-top: -350px;
-}
-#modal_add_ev .ev-modal-body
-{
-//  max-height: none;
-  max-height: 350px;
-}
-#modal_add_ev fieldset
-{
-  padding-top: 15px;
-}
-#modal_add_ev .ev-control-label
-{
-  font-weight: bold;
-}
-#modal_add_ev .ev-help-block
-{
-  font-size: 8pt;
-  color: #777;
-  max-width: 275px;
-}
-#modal_add_ev .ev-modal-footer
-{
-  text-align: left;
-}
-#modal_add_ev .ev-modal-checkbox
-{
-  text-align: left;
-}
-*/
 
 .modalDialog {
   position: fixed;
@@ -514,7 +423,9 @@ main {
   background: #606061;
   color: #FFFFFF;
   line-height: 25px;
-  position: absolute;
+  position: relative;
+  padding: 1px 1px 1px;
+  border: 2px outset buttonface;
   right: 1px;
   text-align: center;
   width: 50px;
@@ -529,6 +440,60 @@ main {
 }
 .modal-footer .btn:hover { background: #00d9ff; }
 
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+/*
+ *
+ * Alert
+ *
+ */
+.alert-heading {
+  color: inherit;
+}
+
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 18px;
+}
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
 /*
  *
  * Footer

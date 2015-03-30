@@ -31,9 +31,9 @@ include_once "header.php";
 
     <nav id="drawer" class="nav">
       <ul class="nav__list">
-        <li class="nav__item"><a href="#modal_add">Inscribete</a>
+        <li class="nav__item"><a href="#openModal_add">Inscríbete</a>
         </li>
-        <li class="nav__item"><a href="#modal_add_ev">Eventos</a>
+        <li class="nav__item"><a href="#openModal_add_ev">Eventos</a>
         </li>
         <li class="nav__item"><a href="#openModal_info">Info</a>
         </li> 
@@ -164,6 +164,396 @@ include_once "header.php";
         </footer>
       </section>
     </main>
+
+    <!-- AÑADIR HANDMAKER -->
+    <div id="openModal_add" class="modalDialog">
+      <div>
+        <form action="add.php" id="modal_addform" name="addForm">
+        <div class="modal-header">
+            <h2>Añade algo!</h2>
+            <a href="#close" title="Close" class="close btn" id="closeX">X</a>
+        </div>
+        <div class="modal-body" id="modal_body">
+          <div id="result"></div> 
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Selecciona Tipo</label>
+              <div class="controls">
+                <select name="type" id="add_type" class="input-xlarge">
+                  <option value="handmakers">Handmakers</option>
+                  <option value="espacios">Espacios</option>
+                </select>   
+                <p class="help-block">
+                    ¿Quieres publicar un Handmaker o un Espacio?
+                </p>     
+              </div>
+            </div>              
+            <div class="control-group">
+              <label class="control-label" for="add_owner_name">Tu nombre</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" name="owner_name" id="add_owner_name" maxlength="100" required>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_owner_email">Tu email</label>
+              <div class="controls">
+                <input type="email" class="input-xlarge" name="owner_email" id="add_owner_email" maxlength="100" required>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_address">Dirección</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" name="address" id="add_address" required>
+                <p class="help-block">
+                  Deberías poner tu calle (incluyendo la ciudad y el Código Postal).
+                  Pon la misma dirección que pondrías en Google Maps,
+                  ¡funciona igual!
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_uri">Web / FanPage</label>
+              <div class="controls">
+                <input type="url" class="input-xlarge" id="add_uri" name="uri" placeholder="http://" required>
+                <p class="help-block">
+                  Pon tu web completa (ej: http://handmademap.com) y si no tienes aún,
+                  puedes poner tu FanPage de Facebook (ej: https://www.facebook.com/Atutichapas)
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_description">Descripción</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="add_description" name="description" maxlength="150" required>
+                <p class="help-block">
+                  Explícanos brevemente qué es lo que haces. 150 letras máximo.
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_especialidad2">Tu especialidad
+                 <p class="help-block">
+                    Puedes poner máximo 
+                    diez especialidades.
+                </p>
+            </label>
+              <div class="controls">                 
+                <ul class="checkboxes" for="add_especialidad"> 
+                    <li><input type="checkbox" name="sub_type[]" value="Amigurimi"> Amigurimi </li>                
+                    <li><input type="checkbox" name="sub_type[]" value="Bebe"> Bebé: Ropa y complementos </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Bolsos"> Bolsos y mochilas </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Caligrafia"> Caligrafía </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Carvado"> Carvado de sellos </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Ceramica"> Cerámica </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Chapas"> Chapas, imanes y merchandising </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Chuches"> Chuches/candy </li>                   
+                    <li><input type="checkbox" name="sub_type[]" value="Costura"> Costura y Patchwork </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Cuadros"> Cuadros </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Cupcakes"> Cupcakes, galletas y tartas </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Decoracion"> Decoración </li>                   
+                    <li><input type="checkbox" name="sub_type[]" value="Encuadernacion"> Encuadernación </li>      
+                    <li><input type="checkbox" name="sub_type[]" value="Escultura"> Escultura </li>  
+                    <li><input type="checkbox" name="sub_type[]" value="Esparto"> Esparto </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Fieltro"> Fieltro </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Fimo"> Fimo </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Fofuchas"> Fofuchas </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Ganchillo"> Ganchillo </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Ilustracion"> Ilustración </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Joyas"> Joyas y bisutería </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Merceria"> Mercería creativa </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Muñecos"> Muñecos, peluches y muñecas </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Organizacion"> Organización de eventos </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Piel"> Piel y cuero </li>                
+                    <li><input type="checkbox" name="sub_type[]" value="Pintura"> Pintura mural y Graffitis </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Reciclaje"> Reciclaje de materiales </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Ropa"> Ropa </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Scrapbook"> Scrapbook </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Tocados"> Tocados </li>
+                    <li><input type="checkbox" name="sub_type[]" value="Trapillo"> Trapillo </li>                    
+                    <li><input type="checkbox" name="sub_type[]" value="Vidrio"> Vidrio </li>                                                                                              
+                    <li><input type="checkbox" name="sub_type[]" value="Zapatos"> Zapatos </li>   
+                </ul>             
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="sub_form" style="float: left;">Enviar</button>
+            <a href="#" class="btn" id="close_form" data-dismiss="modal" style="float: right;">Cerrar</a>
+        </div>
+        </form>
+<!--        <div id="result"></div>-->
+      </div>
+    </div>
+    <script>
+      //VACIAR FORMULARIO AL CERRAR LA PANTALLA
+      var close_form = document.querySelector('#close_form');
+      var closeX     = document.querySelector('#closeX');
+      var sub_form   = document.querySelector('#sub_form');
+
+      close_form.addEventListener('click', function() {
+        $('form[name="addForm"]')
+            .find(':radio, :checkbox').removeAttr('checked').end()
+            .find('textarea, :text, select').val('')
+            
+        return false;
+      });
+      closeX.addEventListener('click', function() {
+        $('form[name="addForm"]')
+            .find(':radio, :checkbox').removeAttr('checked').end()
+            .find('textarea, :text, select').val('')
+            
+        return false;
+      });
+
+      // AÑADIR HANDMAKER O ESPACIO
+      $("#modal_addform").submit(function(event) {
+        event.preventDefault();
+        // get values
+        var allVals=[];
+        $('input[type="checkbox"]:checked').each(function () {
+         allVals.push($(this).val());
+        });
+        var $form       = $( this ),
+            owner_name  = $form.find( '#add_owner_name' ).val(),
+            owner_email = $form.find( '#add_owner_email' ).val(),
+            type        = $form.find( '#add_type' ).val(),
+            address     = $form.find( '#add_address' ).val(),
+            uri         = $form.find( '#add_uri' ).val(),
+            description = $form.find( '#add_description' ).val(),     
+            sub_type    = allVals, 
+            url         = $form.attr( 'action' );
+
+        // send data and get results
+        var posting = $.post( url, { owner_name: owner_name, owner_email: owner_email, type: type, address: address, uri: uri, description: description, sub_type: sub_type});        
+
+        posting.done(function( data ) {
+            var content = $( data ).find( '#content' );
+
+            // if submission was successful, show info alert            
+            if(data == "success") {
+              $("#modal_addform #result").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
+              $("#modal_addform #result").addClass("alert alert-info");
+              $("#modal_addform p").css("display", "none");
+              $("#modal_addform fieldset").css("display", "none");
+              $("#modal_addform .btn-primary").css("display", "none");
+
+            // if submission failed, show error
+            } else {
+              $("#modal_addform #result").html(data);
+              $("#modal_addform #result").addClass("alert alert-danger");
+            }
+        });
+      });
+    </script>
+
+    <!-- AÑADIR EVENTO -->
+    <div id="openModal_add_ev" class="modalDialog">
+      <div>
+        <form action="add_event.php" id="modal_addform_ev" name="addForm_ev">
+        <div class="modal-header">
+            <h2>Añade un evento</h2>
+            <a href="#close" title="Close" class="close btn" id="closeX_ev">X</a>
+        </div>
+        <div class="modal-body" id="modal_body">
+          <div id="result_ev"></div>
+          <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="input01">Selecciona Tipo</label>
+              <div class="controls">
+                <select name="ev_type" id="add_type_ev" class="input-xlarge">
+                  <option value="markets">Markets</option>
+                  <option value="talleres">Talleres</option>
+                </select>
+                <p class="help-block">
+                    ¿Quieres publicar un Market o un Taller?
+                </p>                   
+              </div>
+            </div>               
+            <div class="control-group">
+              <label class="control-label" for="add_owner_name_ev">Nombre del organizador</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" name="ev_owner_name" id="add_owner_name_ev" maxlength="100" required>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_owner_email_ev">Email del organizador</label>
+              <div class="controls">
+                <input type="email" class="input-xlarge" name="ev_owner_email" id="add_owner_email_ev" maxlength="100" required>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_title_ev">Título del taller</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" name="ev_title" id="add_title_ev" maxlength="100" required>
+              </div>
+            </div>         
+            <div class="control-group">
+              <label class="control-label" for="add_fecini_ev">Fecha de inicio</label>
+              <div class="controls">
+                <input type="date" name="ev_fecini" id="add_fecini_ev" maxlength="100" required>            
+                   <p class="help-block">
+                        Por favor, usar DD/MM/AAAA
+                   </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_fecfin_ev">Fecha de fin</label>
+              <div class="controls">
+                   <input type="date" name="ev_fecfin" id="add_fecfin_ev" maxlength="100" required>  
+                   <p class="help-block">
+                        Por favor, usar DD/MM/AAAA
+                   </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_address_ev">Dirección</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" name="ev_address" id="add_address_ev" required>
+                <p class="help-block">
+                  Deberías poner tu calle (incluyendo la ciudad y el Código Postal).
+                  Pon la misma dirección que pondrías en Google Maps,
+                  ¡funciona igual!
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_uri_ev">Web / FanPage</label>
+              <div class="controls">
+                <input type="url" class="input-xlarge" id="add_uri_ev" name="ev_uri" placeholder="http://" reuired>
+                <p class="help-block">
+                  Pon tu web completa (ej: http://handmademap.com) y si no tienes aún,
+                  puedes poner tu FanPage de Facebook (ej: https://www.facebook.com/Atutichapas)
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_description_ev">Descripción</label>
+              <div class="controls">
+                <input type="text" class="input-xlarge" id="add_description_ev" name="ev_description" maxlength="150" required>
+                <p class="help-block">
+                  Explícanos brevemente cómo está enfocado el taller. 150 letras máximo.
+                </p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="add_especialidad2_ev">Especialidad del evento
+                 <p class="help-block">
+                    Indica una única especialidad para los talleres o un máximo de 10 para markets.
+                </p>
+            </label>
+              <div class="controls">                 
+                <ul class="checkboxes" for="add_especialidad_ev"> 
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Amigurimi"> Amigurimi </li>                
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Bebe"> Bebé: Ropa y complementos </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Bolsos"> Bolsos y mochilas </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Caligrafia"> Caligrafía </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Carvado"> Carvado de sellos </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Ceramica"> Cerámica </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Chapas"> Chapas, imanes y merchandising </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Chuches"> Chuches/candy </li>                   
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Costura"> Costura y Patchwork </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Cuadros"> Cuadros </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Cupcakes"> Cupcakes, galletas y tartas </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Decoracion"> Decoración </li>                   
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Encuadernacion"> Encuadernación </li>      
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Escultura"> Escultura </li> 
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Esparto"> Esparto </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Fieltro"> Fieltro </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Fimo"> Fimo </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Fofuchas"> Fofuchas </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Ganchillo"> Ganchillo </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Ilustracion"> Ilustración </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Joyas"> Joyas y bisutería </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Market"> Market </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Merceria"> Merecería creativa </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Muñecos"> Muñecos, peluches y muñecas </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Organizacion"> Organización de eventos </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Piel"> Piel y cuero </li>                
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Pintura"> Pintura mural y Graffitis </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Reciclaje"> Reciclaje de materiales </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Ropa"> Ropa </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Scrapbook"> Scrapbook </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Tocados"> Tocados </li>
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Trapillo"> Trapillo </li>                    
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Vidrio"> Vidrio </li>                                                                                              
+                    <li><input type="checkbox" name="ev_sub_type[]" value="Zapatos"> Zapatos </li>   
+                </ul>             
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="sub_form_ev" style="float: left;">Enviar</button>
+            <a href="#" class="btn" id="close_form_ev" data-dismiss="modal" style="float: right;">Cerrar</a>
+        </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      //VACIAR FORMULARIO AL CERRAR LA PANTALLA
+      var close_form = document.querySelector('#close_form_ev');
+      var closeX     = document.querySelector('#closeX_ev');
+      var sub_form   = document.querySelector('#sub_form_ev');
+
+      close_form.addEventListener('click', function() {
+        $('form[name="addForm_ev"]')
+            .find(':radio, :checkbox').removeAttr('checked').end()
+            .find('textarea, :text, select').val('')
+            
+        return false;
+      });
+      closeX.addEventListener('click', function() {
+        $('form[name="addForm_ev"]')
+            .find(':radio, :checkbox').removeAttr('checked').end()
+            .find('textarea, :text, select').val('')
+            
+        return false;
+      });
+
+      // add modal form submit
+      $("#modal_addform_ev").submit(function(event) {
+        event.preventDefault();
+        // get values
+        var allVals=[];
+        $('input[type="checkbox"]:checked').each(function () {
+         allVals.push($(this).val());
+        });
+        var $form = $( this ),
+            ev_owner_name  = $form.find( '#add_owner_name_ev' ).val(),
+            ev_owner_email = $form.find( '#add_owner_email_ev' ).val(),
+            ev_title       = $form.find( '#add_title_ev' ).val(),
+            ev_type        = $form.find( '#add_type_ev' ).val(),            
+            ev_fecini      = $form.find( '#add_fecini_ev' ).val(),
+            ev_fecfin      = $form.find( '#add_fecfin_ev' ).val(),
+            ev_address     = $form.find( '#add_address_ev' ).val(),
+            ev_uri         = $form.find( '#add_uri_ev' ).val(),
+            ev_description = $form.find( '#add_description_ev' ).val(),
+            ev_sub_type    = allVals, 
+            ev_url         = $form.attr( 'action' );
+
+        // send data and get results
+        var posting = $.post( ev_url, { ev_owner_name: ev_owner_name, ev_owner_email: ev_owner_email, ev_title: ev_title, ev_type: ev_type, ev_fecini: ev_fecini, ev_fecfin: ev_fecfin, ev_address: ev_address, ev_uri: ev_uri, ev_description: ev_description, ev_sub_type: ev_sub_type} );        
+        posting.done(function( data ) {
+            var content = $( data ).find( '#content' );
+
+            // if submission was successful, show info alert
+            if(data == "success") {
+              $("#modal_addform_ev #result_ev").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
+              $("#modal_addform_ev #result_ev").addClass("alert alert-info");
+              $("#modal_addform_ev p").css("display", "none");
+              $("#modal_addform_ev fieldset").css("display", "none");
+              $("#modal_addform_ev .btn-primary").css("display", "none");
+
+            // if submission failed, show error
+            } else {
+              $("#modal_addform_ev #result_ev").html(data);
+              $("#modal_addform_ev #result_ev").addClass("alert alert-danger");
+            }
+          }
+        );
+      });
+    </script>
 
     <!-- INFO -->
     <div id="openModal_info" class="modalDialog">
@@ -310,7 +700,7 @@ include_once "header.php";
                   </p>
           </div>
           <div class="modal-footer">
-            <a href="#" class="btn">Close</a>
+            <a href="#" class="btn">Cerrar</a>
           </div>     
         </div>
       </div>
@@ -669,45 +1059,7 @@ include_once "header.php";
         }        
       google.maps.event.addDomListener(window, 'load', initialize);
 /*
-      // AÑADIR HANDMAKER O ESPACIO
-      $("#modal_addform").submit(function(event) {
-        event.preventDefault();
-        // get values
-        var allVals=[];
-        $('input[type="checkbox"]:checked').each(function () {
-         allVals.push($(this).val());
-        });
-        var $form = $( this ),
-            owner_name = $form.find( '#add_owner_name' ).val(),
-            owner_email = $form.find( '#add_owner_email' ).val(),
-            type = $form.find( '#add_type' ).val(),
-            address = $form.find( '#add_address' ).val(),
-            uri = $form.find( '#add_uri' ).val(),
-            description = $form.find( '#add_description' ).val(),     
-            sub_type = allVals, 
-            url = $form.attr( 'action' );
 
-        // send data and get results
-        $.post( url, { owner_name: owner_name, owner_email: owner_email, type: type, address: address, uri: uri, description: description, sub_type: sub_type},        
-          function( data ) {
-            var content = $( data ).find( '#content' );
-
-            // if submission was successful, show info alert
-            if(data == "success") {
-              $("#modal_addform #result").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
-              $("#modal_addform #result").addClass("alert alert-info");
-              $("#modal_addform p").css("display", "none");
-              $("#modal_addform fieldset").css("display", "none");
-              $("#modal_addform .btn-primary").css("display", "none");
-
-            // if submission failed, show error
-            } else {
-              $("#modal_addform #result").html(data);
-              $("#modal_addform #result").addClass("alert alert-danger");
-            }
-          }
-        );
-      });
 
       // AÑADIR MARKET O EVENTO
       $("#modal_addform_ev").submit(function(event) {
