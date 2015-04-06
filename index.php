@@ -150,17 +150,28 @@ include_once "header.php";
         </ul>
         </nav> 
         <section>
-            <img id="filter_button" class="filter__menu" src="./images/hamburger.png"> 
+          <button type="button" id="filter_button" class="filter__menu"> Filtros </button>
         </section>
         <section id="id_map" class="map">
         </section>
-      
+        <section>
+          <button type="button" id="social_button" class="social__menu"> Social </button>
+        </section>
         <footer>
-         <ul>
-           <li><a href="#">Contact us</a></li>
-           <li><a href="#">Follow us on Twitter</a></li>
-           <li><a href="#">RSS</a></li>
-          </ul>
+          <section id="id_social" class="social">
+            <a href="https://twitter.com/Handmade_Map_" target="_blank">
+            <img title="Twitter" alt="Twitter" src="https://socialmediawidgets.files.wordpress.com/2014/03/twitter.png"/>
+            </a>
+            <a href="https://www.facebook.com/pages/HandMade-Map/1487264921506025?fref=ts">
+            <img title="Facebook" alt="Facebook" src="https://socialmediawidgets.files.wordpress.com/2014/03/facebook.png"/>
+            </a>
+            <a href="http://es.pinterest.com/handmademap/">
+            <img title="Pinterest" alt="Pinterest" src="https://socialmediawidgets.files.wordpress.com/2014/03/pinterest.png"/>
+            </a>
+            <a href="mailto:hello@handmademap.com">
+            <img title="Email" alt="hello@handmademap.com" src="https://socialmediawidgets.files.wordpress.com/2014/03/email.png"/>
+            </a>       
+          </section>
         </footer>
       </section>
     </main>
@@ -492,18 +503,18 @@ include_once "header.php";
     </div>
     <script>
       //VACIAR FORMULARIO AL CERRAR LA PANTALLA
-      var close_form = document.querySelector('#close_form_ev');
-      var closeX     = document.querySelector('#closeX_ev');
-      var sub_form   = document.querySelector('#sub_form_ev');
+      var close_form_ev = document.querySelector('#close_form_ev');
+      var closeX_ev     = document.querySelector('#closeX_ev');
+      var sub_form_ev   = document.querySelector('#sub_form_ev');
 
-      close_form.addEventListener('click', function() {
+      close_form_ev.addEventListener('click', function() {
         $('form[name="addForm_ev"]')
             .find(':radio, :checkbox').removeAttr('checked').end()
             .find('textarea, :text, select').val('')
             
         return false;
       });
-      closeX.addEventListener('click', function() {
+      closeX_ev.addEventListener('click', function() {
         $('form[name="addForm_ev"]')
             .find(':radio, :checkbox').removeAttr('checked').end()
             .find('textarea, :text, select').val('')
@@ -731,11 +742,26 @@ include_once "header.php";
 
       filter_button.addEventListener('click', function(m) {
         filter.classList.toggle('open');
+        filter_button.classList.toggle('open');
         m.stopPropagation();
       });
-      main.addEventListener('click', function() {
+      filter_button.addEventListener('onclick', function() {
         filter.classList.remove('open');
+        filter_button.classList.remove('open');
       });
+
+      var social_button = document.querySelector('#social_button');
+      var social = document.querySelector('.social');
+
+      social_button.addEventListener('click', function(c) {
+        social.classList.toggle('open');
+        social_button.classList.toggle('open');
+        c.stopPropagation();
+      });
+      social_button.addEventListener('onclick', function() {
+        social.classList.remove('open');
+        social_button.classList.remove('open');
+      });      
 
       // initialize map
       function initialize() {
@@ -799,7 +825,7 @@ include_once "header.php";
         ];
 
         // set map options
-      var zoomControl = false;
+      var zoomControl = true;
       var myOptions = {
           zoom: 6,
           center: new google.maps.LatLng(39.7217793,-3.5655605,7),
@@ -1057,52 +1083,7 @@ include_once "header.php";
         function toggleLists(subtype) {
           $(".nav_left__list .list-"+subtype).toggles();
         }        
-      google.maps.event.addDomListener(window, 'load', initialize);
-/*
-
-
-      // AÑADIR MARKET O EVENTO
-      $("#modal_addform_ev").submit(function(event) {
-        event.preventDefault();
-        // get values
-        var allVals=[];
-        $('input[type="checkbox"]:checked').each(function () {
-         allVals.push($(this).val());
-        });
-        var $form = $( this ),
-            ev_owner_name = $form.find( '#add_owner_name_ev' ).val(),
-            ev_owner_email = $form.find( '#add_owner_email_ev' ).val(),
-            ev_title = $form.find( '#add_title_ev' ).val(),
-            ev_type = $form.find( '#add_type_ev' ).val(),            
-            ev_fecini = $form.find( '#add_fecini_ev' ).val(),
-            ev_fecfin = $form.find( '#add_fecfin_ev' ).val(),
-            ev_address = $form.find( '#add_address_ev' ).val(),
-            ev_uri = $form.find( '#add_uri_ev' ).val(),
-            ev_description = $form.find( '#add_description_ev' ).val(),
-            ev_sub_type = allVals, 
-            ev_url = $form.attr( 'action' );
-
-        // send data and get results
-        $.post( ev_url, { ev_owner_name: ev_owner_name, ev_owner_email: ev_owner_email, ev_title: ev_title, ev_type: ev_type, ev_fecini: ev_fecini, ev_fecfin: ev_fecfin, ev_address: ev_address, ev_uri: ev_uri, ev_description: ev_description, ev_sub_type: ev_sub_type},        
-          function( data ) {
-            var content = $( data ).find( '#content' );
-
-            // if submission was successful, show info alert
-            if(data == "success") {
-              $("#modal_addform_ev #result_ev").html("Hemos recibido su formulario y lo validaremos pronto. Gracias!");
-              $("#modal_addform_ev #result_ev").addClass("alert alert-info");
-              $("#modal_addform_ev p").css("display", "none");
-              $("#modal_addform_ev fieldset").css("display", "none");
-              $("#modal_addform_ev .btn-primary").css("display", "none");
-
-            // if submission failed, show error
-            } else {
-              $("#modal_addform_ev #result_ev").html(data);
-              $("#modal_addform_ev #result_ev").addClass("alert alert-danger");
-            }
-          }
-        );
-      });  */    
+      google.maps.event.addDomListener(window, 'load', initialize); 
     </script>
   </body>
 </html>
