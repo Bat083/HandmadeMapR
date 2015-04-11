@@ -15,6 +15,7 @@ include_once "header.php";
     <link rel="stylesheet" type="text/css" href="responsive.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="./scripts/jquery-1.7.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./scripts/bootstrap-typeahead.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
     <script type="text/javascript" src="./scripts/oms.min.js"></script>    
   </head>
@@ -146,6 +147,11 @@ include_once "header.php";
             }            
           }
           ?>
+          <li>
+            <div class="search">
+              <input type="text" name="search" id="search" placeholder="Busca handmakers..." data-provide="typeahead" autocomplete="off" />
+            </div>
+          </li>  
           <li class="blurb"><?= $blurb ?></li>
         </ul>
         </nav> 
@@ -155,7 +161,7 @@ include_once "header.php";
         <section id="id_map" class="map">
         </section>
         <section>
-          <button type="button" id="social_button" class="social__menu"> Social </button>
+          <button type="button" id="social_button" class="social__menu"> Contacta </button>
         </section>
         <footer>
           <section id="id_social" class="social">
@@ -174,6 +180,18 @@ include_once "header.php";
           </section>
         </footer>
       </section>
+      <div class="cookiesms" id="cookie1">
+          Esta web utiliza cookies. 
+          <a href="#openModal_priv" data-toggle="modal">Política.</a> 
+          Si continuas navegando estás aceptándola
+          <button onclick="controlcookies()"> Aceptar </button>
+          <div  class="cookies2" onmouseover="document.getElementById('cookie1').style.bottom = '0px';">Política de cookies + </div>
+      </div>
+      <script type="text/javascript">
+        if (localStorage.controlcookie>0){ 
+        document.getElementById('cookie1').style.bottom = '-50px';
+        }
+      </script>  
     </main>
 
     <!-- AÑADIR HANDMAKER -->
@@ -293,7 +311,6 @@ include_once "header.php";
             <a href="#" class="btn" id="close_form" data-dismiss="modal" style="float: right;">Cerrar</a>
         </div>
         </form>
-<!--        <div id="result"></div>-->
       </div>
     </div>
     <script>
@@ -303,18 +320,10 @@ include_once "header.php";
       var sub_form   = document.querySelector('#sub_form');
 
       close_form.addEventListener('click', function() {
-        $('form[name="addForm"]')
-            .find(':radio, :checkbox').removeAttr('checked').end()
-            .find('textarea, :text, select').val('')
-            
-        return false;
+        document.getElementById("modal_addform").reset();
       });
       closeX.addEventListener('click', function() {
-        $('form[name="addForm"]')
-            .find(':radio, :checkbox').removeAttr('checked').end()
-            .find('textarea, :text, select').val('')
-            
-        return false;
+        document.getElementById("modal_addform").reset();
       });
 
       // AÑADIR HANDMAKER O ESPACIO
@@ -508,18 +517,10 @@ include_once "header.php";
       var sub_form_ev   = document.querySelector('#sub_form_ev');
 
       close_form_ev.addEventListener('click', function() {
-        $('form[name="addForm_ev"]')
-            .find(':radio, :checkbox').removeAttr('checked').end()
-            .find('textarea, :text, select').val('')
-            
-        return false;
+        document.getElementById("modal_addform_ev").reset();
       });
       closeX_ev.addEventListener('click', function() {
-        $('form[name="addForm_ev"]')
-            .find(':radio, :checkbox').removeAttr('checked').end()
-            .find('textarea, :text, select').val('')
-            
-        return false;
+        document.getElementById("modal_addform_ev").reset();
       });
 
       // add modal form submit
@@ -716,6 +717,112 @@ include_once "header.php";
         </div>
       </div>
 
+
+ <!-- Info privacidad -->
+    <div id="openModal_priv" class="modalDialog">
+      <div>
+        <div class="modal-header">
+            <h2>Política de Privacidad</h2>
+            <a href="#close" title="Close" class="close btn">X</a>
+        </div>
+        <div class="modal-body">
+          <p>
+              Nuestra política de privacidad describe como recogemos, 
+              guardamos o utilizamos la información que recabamos a través de los diferentes servicios 
+              o páginas disponibles en este sitio. Es importante que entienda que información recogemos 
+              y como la utilizamos ya que el acceso a este sitio implica la aceptación nuestra política de privacidad.
+          </p>
+          <p> 
+            <b>
+            Cookies
+            </b>
+          </p>
+          <p>
+              El acceso a este puede implicar la utilización de cookies. 
+              Las cookies son pequeñas cantidades de información que se almacenan 
+              en el navegador utilizado por cada usuario para que el servidor recuerde cierta 
+              información que posteriormente pueda utilizar. 
+              Esta información permite identificarle a usted como un usuario concreto y 
+              permite guardar sus preferencias personales, así como información técnica 
+              como pueden ser visitas o páginas concretas que visite.
+          </p>
+          <p>
+              Aquellos usuarios que no deseen recibir cookies o quieran ser informados antes 
+              de que se almacenen en su computadora, pueden configurar su navegador a tal efecto.
+          </p>
+          <p>
+              La mayor parte de los navegadores de hoy en día permiten la gestión de las cookies de 3 
+              formas diferentes:
+          </p>
+            <ol> 
+            <li>Las cookies no se aceptan nunca.</li> 
+            <li>El navegador pregunta al usuario si se debe aceptar cada cookie.</li> 
+            <li>Las cookies se aceptan siempre.</li> 
+            </ol> 
+          <p>
+             El navegador también puede incluir la posibilidad de especificar mejor qué cookies tienen que ser aceptadas y cuáles no. 
+             En concreto, el usuario puede normalmente aceptar alguna de las siguientes opciones:
+          </p>
+            <ol> 
+            <li>Rechazar las cookies de determinados dominios;</li> 
+            <li>Rechazar las cookies de terceros;</li> 
+            <li>Aceptar cookies como no persistentes (se eliminan cuando el navegador se cierra);</li> 
+            <li>Permitir al servidor crear cookies para un dominio diferente.</li> 
+            </ol> 
+          <p> 
+            <b>
+            Terceros
+            </b>
+          </p>
+          <p>
+            En algunos casos, compartimos información sobre los visitantes de este sitio de forma anónima 
+            o agregada con terceros como puedan ser anunciantes, patrocinadores o auditores con el único fin de 
+            mejorar nuestros servicios. Todas estas tareas de procesamiento serán reguladas según las normas legales y 
+            se respetarán todos sus derechos en materia de protección de datos conforme a la regulación vigente
+          </p>
+          <p>
+             Este sitio mide el tráfico con diferentes soluciones que pueden utilizar cookies o web beacons para analizar
+             lo que sucede en nuestras páginas. Actualmente utilizamos las siguientes soluciones para la medición del tráfico 
+             de este sitio. Puede ver más información sobre la política de privacidad de cada una de las soluciones utilizadas 
+             para tal efecto:
+          </p>
+          <p>
+            <li>Google (Analytics): <a href="http://www.google.com/intl/es_ALL/privacypolicy.html">Política de Privacidad de Google Analytics</a></li> 
+          </p>
+          <p> 
+            <b>
+            Otras condiciones de uso exigidas de este sito web
+            </b>
+          </p>
+          <p>
+            El usuario se compromete a hacer un uso diligente del sitio web y de los servicios accesibles desde el mismo, 
+            con total sujeción a la Ley, a las buenas costumbres y al presente aviso legal. Asimismo, se compromete, salvo autorización 
+            previa, expresa y escrita de HandMadeMap.com a utilizar la información contenida en el sitio web, exclusivamente para su 
+            información, no pudiendo realizar ni directa ni indirectamente una explotación comercial de los contenidos a los que tiene acceso.
+          </p>
+          <p>
+            Este sitio web contiene hiperenlaces que conducen a otras páginas web gestionadas por terceros ajenos a nuestra organización. 
+            HandMadeMap.com no garantiza ni se hace responsable del contenido que se recoja en dichas paginas web.
+          </p>
+          <p>
+            Salvo autorización expresa, previa y por escrito de HandMadeMap.com , queda terminantemente prohibida la reproducción, 
+            excepto para uso privado, la transformación, y en general cualquier otra forma de explotación, por cualquier procedimiento, 
+            de todo o parte de los contenidos de este sitio web.
+          </p>   
+          <p>
+            Queda terminantemente prohibido realizar, sin el previo consentimiento de HandMadeMap.com cualquier manipulación o alteración 
+            de este sitio web. Consecuentemente, HandMadeMap.com no asumirá ninguna responsabilidad derivada, o que pudiera derivarse, de 
+            dicha alteración o manipulación por terceros.
+          </p>            
+         
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn">Cerrar</a>
+        </div>   
+      </div>
+    </div>
+ <!-- fin privacidad -->
+
     <script>
       //DEFINICION DE VARIABLES
       var gmarkers = [];       
@@ -731,10 +838,12 @@ include_once "header.php";
 
       menu.addEventListener('click', function(e) {
         drawer.classList.toggle('open');
+        menu.classList.toggle('open')
         e.stopPropagation();
       });
       main.addEventListener('click', function() {
         drawer.classList.remove('open');
+        menu.classList.remove('open');
       });
 
       var filter_button = document.querySelector('#filter_button');
@@ -1084,6 +1193,26 @@ include_once "header.php";
           $(".nav_left__list .list-"+subtype).toggles();
         }        
       google.maps.event.addDomListener(window, 'load', initialize); 
+
+        // zoom to marker if selected in search typeahead list
+        $('#search').typeahead({
+          source: markerTitles,
+          onselect: function(obj) {
+            marker_id = jQuery.inArray(obj, markerTitles);
+            if(marker_id > -1) {
+              map.panTo(gmarkers[marker_id].getPosition());
+              map.setZoom(15);
+              google.maps.event.trigger(gmarkers[marker_id], 'click');
+            }
+            $("#search").val("");
+          }
+        });
+        function controlcookies() {
+          // si variable no existe se crea (al clicar en Aceptar)
+          localStorage.controlcookie = (localStorage.controlcookie || 0);
+          localStorage.controlcookie++; // incrementamos cuenta de la cookie
+          cookie1.style.display='none'; // Esconde la política de cookies
+        }
     </script>
   </body>
 </html>

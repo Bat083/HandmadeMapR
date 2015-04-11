@@ -19,16 +19,18 @@
   width: 100%;
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width:750px){
   main{
     height: 90%;
   }
+
   .nav{
     position: absolute;
     z-index: 1;
     background-color: #fff;
     width: 100%;
     height: 8%;
+    max-height: 40px;
     -webkit-transform: translate(0,-300px);
     transform: translate (0,-300px);
     transition: transform 0.3s ease;
@@ -40,21 +42,19 @@
   }
 
   .nav__item {
-  box-sizing: border-box;
-  display: inline-block;
-  width: calc((100% - 1em) / 4);
-  height: 100%;
-  text-transform: uppercase;
-  padding: 10px 0px;  
-  margin: 0px 0px;
-  border-left: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    display: inline-block;
+    width: calc((100% - 1em) / 4);
+    padding-top: 2vh;
+    line-height: 12px;
+    border-left: 1px solid #E0E0E0;
   }
 
   .nav a {
-  text-decoration: none;
-  color: #616161;
-  padding: 0;
-}
+    text-decoration: none;
+    color: #616161;
+    padding: 0;
+  }
 
   .header{
     height: 10%;
@@ -65,12 +65,10 @@
   }
 
   .header__logo{
-    height: 100%;
-    width: 50%;
-    margin-left: 2%;    
-    margin-top: 2%;
-    margin-bottom: 2%;
-    max-height: 40px;
+    height: 30px;
+    width: 160px;
+    margin-left: 5px;    
+    margin-top: 1px;
   }
 
   .header__menu{
@@ -79,7 +77,13 @@
     width: 25px;
     height: 25px;
     right: 5px;    
-    padding-top: 3vh;
+    padding-top: 1vh;
+    background-color: transparent;
+    -webkit-filter: opacity(1);
+  }
+
+  .header__menu.open{
+    -webkit-filter: opacity(0.7);
   }
 
   .nav_left{
@@ -89,8 +93,8 @@
     width: 180px;
     left: 0px;
     top: 18%;
-    height: 40%;
-    min-height: 300px;
+    height: 45%;
+    min-height: 250px;
     order: 1;
     -webkit-transform: translate(-300px,0);
     transform: translate (-300px,0);
@@ -172,9 +176,8 @@
   }
 
   .map{
-    position: relative;
     width: 100%;
-    height: 90%;
+    height: 100%;
     left: 0px;
     order: 2;
   }
@@ -191,53 +194,6 @@
   height: 90%;
   }
 
-  footer {
-    order: 3;
-    height: 10%;
-    position: relative;
-    padding: 0em;
-  }
-
-  footer a {
-    padding: 0em;
-  }    
-}
-
-@media screen and (min-width: 551px){
-  .nav_left{
-    order: 1;
-    width: 20%;
-    max-width: 200px;
-    height: 90%;
-    position: relative;
-  }
-  .map{
-    order: 2;
-    width: 80%;
-    max-width: 1200px;
-    height: 90%;    
-    left: 0%; 
-  }
-  footer {
-    order: 3;
-    height: 10%;
-    position: relative;
-    padding: 0em;
-  }
-
-  footer a {
-    padding: 0em;
-  }  
-}
-
-@media screen and (min-width: 1400px){
-  .container{
-    max-width: 1400px;
-    margin: auto;
-  }
-}
-
-@media screen and (max-height: 550px){
   footer{
     height: 0%;
     border-top: 0px;
@@ -246,7 +202,7 @@
   .social{
     position: absolute;
     z-index: 2;
-    background-color: #fff;
+    background-color: transparent;    
     height: 10%;
     -webkit-transform: translate(0,-600px);
     transform: translate (0,-600px);
@@ -256,9 +212,9 @@
   .social.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-    width: 40%;
-    bottom: 50px;
-    left: 180px;
+    width: 50%;
+    bottom: 10px;
+    left: 10px;
   }
 
   .social__menu {
@@ -297,50 +253,76 @@
     text-decoration: none;
   }
 
-  .nav__item {
-    padding: 0px;
-  }
-
-  .header__menu{
-    height: 25px;
-    width: 25px;
-    padding-top: 1vh;
-  }
-
-  .header__logo {
-    height: 80%;
-    width: 40%;
-    margin-left: 2%;
-    margin-top: 1%;
-    margin-bottom: 0%;
-    max-height: 30px;
-  }
-
-  .map{
-    height: 100%;
-  }
-
   ul{
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
   }
+
 }
 
-@media screen and (max-height: 550px) and (max-width: 750px) and (min-width: 550px){
-  .header__logo {
-    margin-left: 40%;
+@media screen and (max-width: 750px) and (min-height: 550px) {
+  .header{
+    height: 7%;
+  }
+
+  .header__logo{
+    height: 40px;
+  }
+
+  main{
+    height: 93%;
   }
 }
 
-@media screen and (max-height: 375px){
+@media screen and (min-width: 751px){
+  .header{
+    height: 7%;
+    min-height: 50px;
+  }
+
+  .header__logo{
+    height: 40px;
+  }
+
+  .nav {
+    height: 6%;
+    min-height: 40px;
+  }
+
+  main{
+    height: 87%;
+  }
   .nav_left{
-    height: 80%;
-    max-height: 250px;
-    min-height: 250px;
+    order: 1;
+    width: 20%;
+    max-width: 200px;
+    height: 90%;
+    position: relative;
   }
+  .map{
+    order: 2;
+    width: 80%;
+    max-width: 1200px;
+    height: 90%;    
+    left: 0%; 
+  }
+
+  footer {
+    order: 3;
+    height: 10%;
+    position: relative;
+    padding: 0em;
+  }
+
+  footer a {
+    padding: 0em;
+  }  
 }
 
-
-
-
+@media screen and (min-width: 1400px){
+  .container{
+    max-width: 1400px;
+    margin: auto;
+  }
+}
 
