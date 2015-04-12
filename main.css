@@ -459,7 +459,6 @@ main {
   max-width: 600px;
   height: 90%;
   position: relative;
-  -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;
@@ -495,15 +494,20 @@ main {
 .close:hover { background: #00d9ff; }
 
 .modal-header, .modal-footer{
-  background:#f7f7f7;
   border-bottom: 1px solid #e7e7e7;
   border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
+
+  height: 8%;
 }
+
 .modal-body{
   overflow-y: scroll;
+
+  height: 84%;
 }
+
 .modal-footer {
     border:none;
     border-top: 1px solid #e7e7e7;
@@ -511,6 +515,7 @@ main {
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
   }
+
 .modal-footer .btn {
   float:right;
   background: #606061;
@@ -531,6 +536,7 @@ main {
   -webkit-box-shadow: 1px 1px 3px #000;
   box-shadow: 1px 1px 3px #000;
 }
+
 .modal-footer .btn:hover { background: #00d9ff; }
 
 

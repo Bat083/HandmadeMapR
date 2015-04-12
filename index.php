@@ -206,7 +206,7 @@ include_once "header.php";
     <!-- AÑADIR HANDMAKER -->
     <div id="openModal_add" class="modalDialog">
       <div>
-        <form action="add.php" id="modal_addform" name="addForm">
+        <form action="add.php" id="modal_addform" name="addForm" style="height: 100%">
         <div class="modal-header">
             <h2>Añade algo!</h2>
             <a href="#close" title="Close" class="close btn" id="closeX">X</a>
@@ -334,9 +334,7 @@ include_once "header.php";
       closeX.addEventListener('click', function() {
         document.getElementById("modal_addform").reset();
       });
-      $('body').css('overflow','hidden');
-      $('body').css('position','fixed');
-      $('#modal_addform').css('overflow','scroll');
+
       // AÑADIR HANDMAKER O ESPACIO
       $("#modal_addform").submit(function(event) {
         event.preventDefault();
@@ -381,7 +379,7 @@ include_once "header.php";
     <!-- AÑADIR EVENTO -->
     <div id="openModal_add_ev" class="modalDialog">
       <div>
-        <form action="add_event.php" id="modal_addform_ev" name="addForm_ev">
+        <form action="add_event.php" id="modal_addform_ev" name="addForm_ev" style="height: 100%">
         <div class="modal-header">
             <h2>Añade un evento</h2>
             <a href="#close" title="Close" class="close btn" id="closeX_ev">X</a>
