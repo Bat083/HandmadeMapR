@@ -459,6 +459,7 @@ main {
   max-width: 600px;
   height: 90%;
   position: relative;
+  -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;

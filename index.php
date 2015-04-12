@@ -7,7 +7,7 @@ include_once "header.php";
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HandmadeMap - Mapa de handmakers de España</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
@@ -17,7 +17,16 @@ include_once "header.php";
     <script src="./scripts/jquery-1.7.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="./scripts/bootstrap-typeahead.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
-    <script type="text/javascript" src="./scripts/oms.min.js"></script>    
+    <script type="text/javascript" src="./scripts/oms.min.js"></script> 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55002519-1', 'auto');
+      ga('send', 'pageview');
+    </script>   
   </head>
   <body>
 
@@ -325,7 +334,9 @@ include_once "header.php";
       closeX.addEventListener('click', function() {
         document.getElementById("modal_addform").reset();
       });
-
+      $('body').css('overflow','hidden');
+      $('body').css('position','fixed');
+      $('#modal_addform').css('overflow','scroll');
       // AÑADIR HANDMAKER O ESPACIO
       $("#modal_addform").submit(function(event) {
         event.preventDefault();

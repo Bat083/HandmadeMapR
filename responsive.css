@@ -13,7 +13,9 @@
 
 .container{
   display: flex;
+  display: -webkit-flex;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   flex-direction: row;
   height: 100%;
   width: 100%;
